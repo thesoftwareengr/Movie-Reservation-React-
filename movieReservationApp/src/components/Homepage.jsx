@@ -1,33 +1,32 @@
-import React from "react"
-import { useState } from "react"
+import React from "react";
+import { useState } from "react";
+import Choices from "./Choices";
 
-function Homepage(){
-const [date,setDate] = useState()
-console.log("Date", date);
-    return (
-        <>
-        <div>
-            <h1>
-                Movie Reservation                
-            </h1>
-          <div className="select-Date">
-              <h2>Selected Date: {date}</h2>
-              <input type="date" onChange={e => setDate(e.target.value)} />
+function Homepage() {
+  const [date, setDate] = useState();
+  const [dateChoice, setDateChoice] = useState();
+  console.log("Date", date);
 
-          </div>
-          
-          
-          
-          
-            <div className="homepage-buttons">
-          
-          
-               <button type="button" >Reserve</button>
-               <button type="button" >Delete Reservation</button>
+  function nextPage() {
+    setDateChoice(true);
+  }
+  return (
+    <>
+      <div>
+        <h1>Movie Reservation</h1>
+        <div className="select-Date">
+          <h2>Selected Date: {date}</h2>
+          {!dateChoice && (
+            <div>
+              <input type="date" onChange={(e) => nextPage().setDate (e.target.value) } />
             </div>
+          )}
+          {dateChoice && <Choices/>
+          }
         </div>
-        </>
-    )
+      </div>
+    </>
+  );
 }
 
-export default Homepage
+export default Homepage;
