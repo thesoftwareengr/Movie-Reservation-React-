@@ -1,27 +1,29 @@
 import React from "react";
 import { useState } from "react";
-import Choices from "./Choices";
+import DatePicker from "./datePicker";
+
 
 function Homepage() {
-  const [date, setDate] = useState();
-  const [dateChoice, setDateChoice] = useState();
-  console.log("Date", date);
+   const[reserve,setReserve] = useState(false);
+   const[change, setChange] = useState(false);
+   const[delReserve,setDelReserve] = useState(false);
 
-  function nextPage() {
-    setDateChoice(true);
-  }
+   function nextPage() {
+    setChange(true);
+   }
+
   return (
     <>
       <div>
         <h1>Movie Reservation</h1>
-        <div className="select-Date">
-          <h2>Selected Date: {date}</h2>
-          {!dateChoice && (
-            <div>
-              <input type="date" onChange={(e) => nextPage().setDate (e.target.value) } />
-            </div>
-          )}
-          {dateChoice && <Choices/>
+        <div className="homepage-buttons">
+          {!change && (
+           <div>
+         <button type="button" onClick={setChange}>Reserve</button>
+          <button type="button">Delete Reservation</button>
+          </div>
+          )}{change &&
+           <DatePicker/>
           }
         </div>
       </div>
