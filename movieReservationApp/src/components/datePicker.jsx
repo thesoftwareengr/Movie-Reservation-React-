@@ -1,14 +1,14 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import Reservation from "./Reservation";
 
 function DatePicker() {
-  const [date, setDate] = useState();
-  const [dateChoice, setDateChoice] = useState();
-  console.log("Date", date);
+  const [date, setDate] = useState("");
+  const [dateChoice, setDateChoice] = useState(false);
 
   function nextPage() {
     setDateChoice(true);
   }
+
   return (
     <>
       <div>
@@ -17,14 +17,16 @@ function DatePicker() {
             <h2>Selected Date: {date}</h2>
 
             <div>
-              <input
-                type="date"
-                onChange={(e) => setDate(e.target.value)}
-              />
+              <input type="date" onChange={(e) => setDate(e.target.value)} />
             </div>
+
+            <button type="button" onClick={nextPage}>
+              Next
+            </button>
           </div>
         )}
-        {dateChoice}
+
+        {date && dateChoice && <Reservation />}
       </div>
     </>
   );

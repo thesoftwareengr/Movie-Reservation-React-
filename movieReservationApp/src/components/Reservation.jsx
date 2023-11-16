@@ -1,14 +1,16 @@
 import React from "react";
 
 function Reservation() {
+  const buttonCount = 40;
+  const buttons = Array.from({ length: buttonCount }, (_, index) => (
+    <button key={index + 1}>Button {index + 1}</button>
+  ));
 
-    return (
-        <>
-          <div>
-            <h1>
-             This is Reservation Page
-           </h1>
-          </div>
-        </>
-    )
+  return (
+    <div>
+      {buttons}
+    </div>
+  );
 }
+
+export default Reservation;

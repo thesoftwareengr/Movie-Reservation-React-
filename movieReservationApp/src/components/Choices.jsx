@@ -14,4 +14,4 @@ function Choices() {
   );
 }
 
-export default Choices
+export default Choices;
