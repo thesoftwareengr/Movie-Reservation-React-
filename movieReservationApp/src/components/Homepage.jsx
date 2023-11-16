@@ -3,6 +3,8 @@ import { useState } from "react";
 import DatePicker from "./datePicker";
 import Choices from "./Choices";
 import Reservation from "./Reservation";
+import MovieData from "./MovieData";
+
 
 function Homepage() {
   const [reserve, setReserve] = useState(false);
@@ -23,7 +25,7 @@ function Homepage() {
   function nextPage() {
     setChange(true);
   }
-
+ console.log(MovieData.defaultProps.movieData);
   return (
     <>
       <div>
