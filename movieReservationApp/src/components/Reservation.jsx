@@ -28,7 +28,7 @@ const Reservation = () => {
   // Render your component with the seatingArray state
   return (
     <div>
-      <h2>Seating Chart</h2>
+      <h2>Seat Layout</h2>
       <table>
         <tbody>
           {seatingArray.map((row, rowIndex) => (
@@ -43,7 +43,7 @@ const Reservation = () => {
                   }}
                   onClick={() => markSeatAsUnavailable(rowIndex, seatIndex)}
                 >
-                  Seat 
+                  {`Row ${rowIndex + 1} Seat ${String.fromCharCode(65 + seatIndex)}`}
                 </td>
               ))}
             </tr>
