@@ -13,7 +13,7 @@ function MovieData({ movieData }) {
 MovieData.defaultProps = {
   movieData: [
     { date: "2023-11-12" },
-    { date: "2023-11-1" },
+    
   ],
 };
 
